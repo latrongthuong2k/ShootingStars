@@ -26,22 +26,23 @@ public class Fly : MonoBehaviour
 
 
     }
-    void Die()
-    {
-        Destroy(gameObject);
-    }
+    
     public void TakeDamage(int damage)
     {
         HP -= damage;
         if (HP <= 0)
         {
-            Die();
+            Destroy(gameObject);
         }
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Player = other.GetComponent<PlayerManager>();
+        
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
         if (statusPrefab != PlayerStatus.playerModeState.ToString())
         {
             Destroy(gameObject);

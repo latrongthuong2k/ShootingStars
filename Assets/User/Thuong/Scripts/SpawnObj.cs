@@ -7,7 +7,7 @@ public class SpawnObj : MonoBehaviour
     private float spawnRangeX = 10;
     private float spawnRangeY = 4;
     private float StarRepeatingAtTime = 2f;
-    private float Timerepeat = 0.5f; // repeating every 0.5 second;
+    private float Timerepeat = 0.3f; // repeating every 0.3 second;
     public GameObject StarObjectPrefab;
    
 
@@ -22,6 +22,7 @@ public class SpawnObj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       Timerepeat = Random.Range(0, 0.2f);
         SetColorMode();
         ObjModeDraw();
 

@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/User/Thuong/Title.unity
+    guid: a63cd0efd9c843340aa3134b62253fc1
+  - enabled: 1
+    path: Assets/User/Thuong/Game.unity
+    guid: 746f4ed9be51145e39733f983f2c65cc
+  - enabled: 1
+    path: Assets/User/Thuong/GameOver.unity
+    guid: f458294c5379d3948b1cafd8d6c4e0f7
+  - enabled: 1
+    path: Assets/User/Thuong/GameClear.unity
+    guid: ae09f626cc2726148b31a235af9ac946
+  - enabled: 1
+    path: Assets/User/Thuong/ManagerScene.unity
+    guid: 1e6ff58039a97db478a2e45fa8b086d6
   m_configObjects: {}

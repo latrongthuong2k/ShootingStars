@@ -6,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private float modeCounDownSec = 10f;
     public bool lockMode = false;
-    
+    public float BlockPush;
+    public Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,23 +18,32 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
+        
         if (lockMode == true)
         {
             CounDown();
         }
+       
     }
     void Move()
     {
-       
         float UpDown = Input.GetAxis("Vertical") * PlayerStatus.speed * Time.deltaTime;
-        float RightLeft = Input.GetAxis("Horizontal") * PlayerStatus.speed * Time.deltaTime;
-        transform.Translate(RightLeft, UpDown, 0);
-
+        //float RightLeft = Input.GetAxis("Horizontal") * PlayerStatus.speed * Time.deltaTime;
+        transform.Translate(0, UpDown, 0);
+        if(gameObject.transform.position.y >= 4.6f)
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, 4.6f, 0);           
+        }
+        else if(gameObject.transform.position.y <= -4.6f)
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -4.6f, 0);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (PlayerStatus.playerModeState == PlayerStatus.PlayerModeState.None && lockMode == false)
         {
+            PlayerStatus.HP += 20;
             if (collision.gameObject.GetComponent<SpriteRenderer>().color == Color.red)
             {
                 PlayerStatus.playerModeState = PlayerStatus.PlayerModeState.Red;
@@ -57,7 +67,16 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    private IEnumerator WaitForTakeDamage(float delay)
+    {
+        if (gameObject.transform.position.y > 4.6 || gameObject.transform.position.y < -4.6)
+        {
+            PlayerStatus.HP -= 10;
+        }
+        yield return new WaitForSeconds(delay);
+        
 
+    }
     private void SetOriginal()
     {
         if(lockMode == false)
