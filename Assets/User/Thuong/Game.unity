@@ -606,6 +606,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StarObjectPrefab: {fileID: 1804081632331365377, guid: cede51339f4cd461286a50d05d5fcc4f, type: 3}
+  sprites:
+  - {fileID: 21300000, guid: 862a4039d15de48a8bb5e0c2d156589c, type: 3}
+  - {fileID: 21300000, guid: 3a56107942fb0499abf64e116f0b11c0, type: 3}
+  - {fileID: 21300000, guid: 5c37a42d9474444629294794ba6a4f69, type: 3}
+  - {fileID: 21300000, guid: a7b8362f5de274f07bedc6f87cc9e7a5, type: 3}
+  - {fileID: 21300000, guid: 97015f3ca1be64aff9fe598215f13518, type: 3}
+  SpawnSpriteIndex: 0
 --- !u!114 &1318190882
 MonoBehaviour:
   m_ObjectHideFlags: 0

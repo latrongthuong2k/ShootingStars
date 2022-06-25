@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
                 lockMode = true;
                 modeCounDownSec = 10;
             }
-            if (collision.gameObject.GetComponent<SpriteRenderer>().color == Color.blue)
+            if (collision.gameObject.GetComponent<SpriteRenderer>().color == Color.blue);
             {
                 PlayerStatus.playerModeState = PlayerStatus.PlayerModeState.Blue;
                 gameObject.GetComponent<SpriteRenderer>().color = new Color32(0, 0, 255, 255);

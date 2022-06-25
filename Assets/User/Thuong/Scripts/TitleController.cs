@@ -10,10 +10,12 @@ public class TitleController : MonoBehaviour
     [SerializeField] float _cursorLength = -600;
     private int _selectNum = 0;
     Vector2 vec = Vector2.zero;
-
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        
         vec = _titleText[0].transform.position;
         vec += new Vector2(_cursorLength, 0);
         _cursor.transform.position = vec;

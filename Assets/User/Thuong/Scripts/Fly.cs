@@ -7,11 +7,13 @@ public class Fly : MonoBehaviour
     public int HP = 100;
     public float speed = 5f;
     private float leftBlock = -11f;
-    PlayerManager Player;
     private string statusPrefab;
+    public Sprite[] sprites;
+    public int SpawnSpriteIndex;
 
     private void Awake()
     {
+        
         statusPrefab = PlayerStatus.objModeState.ToString();
     }
     // Update is called once per frame

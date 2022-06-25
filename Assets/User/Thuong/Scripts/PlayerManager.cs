@@ -69,21 +69,21 @@ public class PlayerManager : MonoBehaviour
 
     }
 
-    private void PlayerModeDraw()
-    {
-        switch (PlayerStatus.playerModeState)
-        {
-            case PlayerStatus.PlayerModeState.Red:
-                PlayerObj.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
-                break;
-            case PlayerStatus.PlayerModeState.Yellow:
-                PlayerObj.GetComponent<SpriteRenderer>().color = new Color32(255, 235, 4, 255);
-                break;
-            case PlayerStatus.PlayerModeState.Blue:
-                PlayerObj.GetComponent<SpriteRenderer>().color = new Color32(0, 0, 255, 255);
-                break;
-        }
-    }
+    //private void PlayerModeDraw()
+    //{
+    //    switch (PlayerStatus.playerModeState)
+    //    {
+    //        case PlayerStatus.PlayerModeState.Red:
+    //            PlayerObj.GetComponent<SpriteRenderer>().color = new Color32(255, 0, 0, 255);
+    //            break;
+    //        case PlayerStatus.PlayerModeState.Yellow:
+    //            PlayerObj.GetComponent<SpriteRenderer>().color = new Color32(255, 235, 4, 255);
+    //            break;
+    //        case PlayerStatus.PlayerModeState.Blue:
+    //            PlayerObj.GetComponent<SpriteRenderer>().color = new Color32(0, 0, 255, 255);
+    //            break;
+    //    }
+    //}
    
 
 }

@@ -71,7 +71,7 @@ public class SoundManager : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void OnBoot()
     {
-        Debug.Log("<color=red>サウンドマネージャー運転中</color>");
+        Debug.Log("<color=red>CheckLoad</color>");
         SceneManager.LoadScene("ManagerScene", LoadSceneMode.Additive);
     }
 

@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnObj : MonoBehaviour
+ class SpawnObj : MonoBehaviour
 {
     private float spawnRangeX = 10;
     private float spawnRangeY = 4;
     private float StarRepeatingAtTime = 2f;
     private float Timerepeat = 0.3f; // repeating every 0.3 second;
     public GameObject StarObjectPrefab;
-   
+    
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,7 @@ public class SpawnObj : MonoBehaviour
     }
     void SpawnRandomObj()
     {
+       
         Vector3 Spawnpos = new Vector3(spawnRangeX, Random.Range(spawnRangeY, -spawnRangeY), 0);
         Instantiate(StarObjectPrefab, Spawnpos, StarObjectPrefab.transform.rotation);
     }
