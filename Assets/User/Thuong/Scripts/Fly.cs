@@ -38,16 +38,15 @@ public class Fly : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(gameObject);
-        }
+
+
         if (statusPrefab != PlayerStatus.playerModeState.ToString())
         {
             Destroy(gameObject);
-            PlayerStatus.HP -= 20;
+            if (!other.gameObject.CompareTag("Bullet"))
+            {
+                PlayerStatus.HP -= 20;
+            }
         }
-        
     }
 }
