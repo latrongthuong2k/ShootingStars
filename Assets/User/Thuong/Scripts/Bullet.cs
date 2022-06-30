@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private int Damage = 100;
-    public float speed = 8f;
+    private int Damage = 50;
+    private float speed = 8f;
     private float rightBlock = 11f;
+    public GameObject impactEffect;
+    public int Score;
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +24,9 @@ public class Bullet : MonoBehaviour
         if(fly != null)
         {
             fly.TakeDamage(Damage);
+            Score +=1;
         }
+        Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

@@ -47,17 +47,21 @@ public class FadeContoller : SingletonMonoBehaviour<FadeContoller>
 
     public IEnumerator Fade(float interval, string taransition2)
     {
-        yield return FadeOut(interval);
+        yield return FadeOut(interval, taransition2);
 
         yield return SceneManager.LoadSceneAsync(taransition2);
 
-        yield return FadeIn(interval);
+        yield return FadeIn(interval, taransition2);
     }
 
-    public IEnumerator FadeOut(float interval)
+    public IEnumerator FadeOut(float interval,string sceneName)
     {
         _canLoadScene = false;
         float time = 0f;
+        if (sceneName == "Game")
+        {
+            time = -1f;
+        }else { time = 0f; }
         canvas.enabled = true;
 
         while (time <= interval)
@@ -69,11 +73,15 @@ public class FadeContoller : SingletonMonoBehaviour<FadeContoller>
         }
     }
 
-    public IEnumerator FadeIn(float interval)
+    public IEnumerator FadeIn(float interval, string sceneName)
     {
         _canLoadScene = true;
         float time = 0f;
-        time = 0f;
+        if (sceneName == "Game")
+        {
+            time = -1f;
+        }
+        else { time = 0f; }
         while (time <= interval)
         {
             float fadeAlpha = Mathf.Lerp(1f, 0f, time / interval);

@@ -10,12 +10,13 @@ public class TitleController : MonoBehaviour
     [SerializeField] float _cursorLength = -600;
     private int _selectNum = 0;
     Vector2 vec = Vector2.zero;
-    
+    private AudioSource TileAudio;
+    public AudioClip SelectSE;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        TileAudio = GetComponent<AudioSource>();   
         vec = _titleText[0].transform.position;
         vec += new Vector2(_cursorLength, 0);
         _cursor.transform.position = vec;
@@ -36,8 +37,9 @@ public class TitleController : MonoBehaviour
         //    _selectNum++;
         //    SelectText();
         //}
-         if (Input.GetKeyDown(KeyCode.X))
+         if (Input.GetKeyDown(KeyCode.Space))
         {
+            TileAudio.PlayOneShot(SelectSE, 1.0f);
             SceneChange();
         }
     }

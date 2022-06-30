@@ -25,6 +25,7 @@ public static class PlayerStatus
         Red,
         Yellow,
         Blue,
+        Green,
     }
 
     public static PlayerModeState playerModeState = PlayerModeState.None;
@@ -35,7 +36,8 @@ public static class PlayerStatus
         Red,
         Yellow,
         Blue,
+        Green,
+        FastStar,
     }
-
     public static ObjModeState objModeState = ObjModeState.None;
 }
