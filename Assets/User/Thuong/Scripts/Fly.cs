@@ -38,6 +38,7 @@ public class Fly : MonoBehaviour
         if (HP <= 0)
         {
             Destroy(gameObject);
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
         }
     }
     
