@@ -58,7 +58,7 @@ public class FadeContoller : SingletonMonoBehaviour<FadeContoller>
     {
         _canLoadScene = false;
         float time = 0f;
-        if (sceneName == "Game")
+        if (sceneName == "Game" || sceneName == "Title")
         {
             time = -1f;
         }else { time = 0f; }
@@ -77,7 +77,7 @@ public class FadeContoller : SingletonMonoBehaviour<FadeContoller>
     {
         _canLoadScene = true;
         float time = 0f;
-        if (sceneName == "Game")
+        if (sceneName == "Game" || sceneName == "Title" )
         {
             time = -1f;
         }

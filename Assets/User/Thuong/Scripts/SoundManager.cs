@@ -167,7 +167,7 @@ public class SoundManager : MonoBehaviour
     // SE再生
     public void PlaySE(int index)
     {
-        if (0 > index || SE.Length <= index)
+        if (SE.Length <= index)
         {
             return;
         }

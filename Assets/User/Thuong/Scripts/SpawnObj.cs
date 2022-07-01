@@ -50,11 +50,11 @@ using UnityEngine;
                 Instantiate(StarObjectPrefab[RandomNum], Spawnpos, StarObjectPrefab[RandomNum].transform.rotation);
                 break;
             case 4:
-                rateFastStar = Random.Range(0, 3);
+                rateFastStar = Random.Range(0, 4);
                 if (rateFastStar == 0)
                 {
                     float localY = Random.Range(spawnRangeY, -spawnRangeY);
-                    Vector3 SpawnPosFastStars = new Vector3(50f, localY , 0);
+                    Vector3 SpawnPosFastStars = new Vector3(70f, localY , 0);
                     Vector3 SpawnPosWaring = new Vector3(8.36f, localY, 0);
                     PlayerStatus.objModeState = PlayerStatus.ObjModeState.FastStar;
                     Instantiate(StarObjectPrefab[RandomNum], SpawnPosFastStars, StarObjectPrefab[RandomNum].transform.rotation);

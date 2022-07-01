@@ -11,10 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public GameObject ColorMode;
     private AudioSource ModeAudio;
     public AudioClip modeAudioClips;
-
+    private ModeTimer _modeTimer;
     // Start is called before the first frame update
     void Start()
     {
+        _modeTimer = GetComponent<ModeTimer>();
         ModeAudio = GetComponent<AudioSource>();
         SetOriginal();
     }
@@ -48,7 +49,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PlayerStatus.playerModeState == PlayerStatus.PlayerModeState.None && lockMode == false)
         {
-            PlayerStatus.HP += 20;
+            PlayerStatus.HP += 20; // fix HP Bug
+
             if (collision.gameObject.GetComponent<Fly>().statusPrefab == PlayerStatus.ObjModeState.Red.ToString())
             {
                 ModeAudio.PlayOneShot(modeAudioClips, 1f);
@@ -58,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
                 ColorMode.SetActive(true);
                 lockMode = true;
                 modeCounDownSec = 10;
+                _modeTimer.Being2((int)modeCounDownSec);
             }
             if (collision.gameObject.GetComponent<Fly>().statusPrefab == PlayerStatus.ObjModeState.Yellow.ToString())
             {
@@ -68,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
                 ColorMode.SetActive(true);
                 lockMode = true;
                 modeCounDownSec = 10;
+                _modeTimer.Being2((int)modeCounDownSec);
             }
             if (collision.gameObject.GetComponent<Fly>().statusPrefab == PlayerStatus.ObjModeState.Blue.ToString())
             {
@@ -78,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
                 ColorMode.SetActive(true);
                 lockMode = true;
                 modeCounDownSec = 10;
+                _modeTimer.Being2((int)modeCounDownSec);
             }
             if (collision.gameObject.GetComponent<Fly>().statusPrefab == PlayerStatus.ObjModeState.Green.ToString())
             {
@@ -88,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
                 ColorMode.SetActive(true);
                 lockMode = true;
                 modeCounDownSec = 10;
+                _modeTimer.Being2((int)modeCounDownSec);
             }
             //if (collision.gameObject.GetComponent<Fly>().statusPrefab == PlayerStatus.ObjModeState.FastStar.ToString())
             //{

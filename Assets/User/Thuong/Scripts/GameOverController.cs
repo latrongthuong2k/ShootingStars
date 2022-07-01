@@ -10,10 +10,13 @@ public class GameOverController : MonoBehaviour
     [SerializeField] float _cursorLength = -500;
     private int _selectNum = 0;
     Vector2 vec = Vector2.zero;
+    private AudioSource GameOV;
+    public AudioClip SelectSE;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameOV = GetComponent<AudioSource>();
         vec = _titleText[0].transform.position;
         vec += new Vector2(_cursorLength, 0);
         _curor.transform.position = vec;
@@ -32,8 +35,9 @@ public class GameOverController : MonoBehaviour
             _selectNum++;
             SelectText();
         }
-        else if (Input.GetKeyDown(KeyCode.X))
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
+            GameOV.PlayOneShot(SelectSE, 1.0f);
             SceneChange();
         }
     }
