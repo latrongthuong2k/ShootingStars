@@ -38,7 +38,7 @@ public class PlayManager : MonoBehaviour
         {
             Instantiate(BulletPrefab, Gun.transform.position, BulletPrefab.transform.rotation);
             GunAudio.PlayOneShot(GunAudioClips[0], 1f);
-            bulletSlot -= 1;
+            bulletSlot -= 1;// 
             if (bulletSlot == 0)
             {
                 TimeReload = 5f;
