@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private float modeCounDownSec = 10f;
    
     public bool lockMode = false;
     public float BlockPush;
     public GameObject ColorMode;
-    private AudioSource ModeAudio;
     public AudioClip modeAudioClips;
+    private AudioSource ModeAudio;
     private ModeTimer _modeTimer;
+    private float modeCounDownSec = 10f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +35,9 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         float UpDown = Input.GetAxis("Vertical") * PlayerStatus.speed * Time.deltaTime;
-        //float RightLeft = Input.GetAxis("Horizontal") * PlayerStatus.speed * Time.deltaTime;
         transform.Translate(0, UpDown, 0);
+
+
         if(gameObject.transform.position.y >= 4.6f)
         {
             gameObject.transform.position = new Vector3(gameObject.transform.position.x, 4.6f, 0);           
@@ -77,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 ModeAudio.PlayOneShot(modeAudioClips, 1f);
                 PlayerStatus.playerModeState = PlayerStatus.PlayerModeState.Blue;
-                ColorMode.GetComponent<SpriteRenderer>().color = new Color32(0, 0, 255, 255);
+                ColorMode.GetComponent<SpriteRenderer>().color = new Color32(0, 170, 255, 255);
                 //gameObject.GetComponent<SpriteRenderer>().color = new Color32(0, 0, 255, 255);
                 ColorMode.SetActive(true);
                 lockMode = true;

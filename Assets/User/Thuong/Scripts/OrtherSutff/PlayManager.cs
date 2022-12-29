@@ -5,26 +5,29 @@ using UnityEngine.UI;
 
 public class PlayManager : MonoBehaviour
 {
+    public float TimeReload;
     public GameObject BulletPrefab;
     public GameObject Gun;
-    public float TimeReload;
-    private int bulletSlot = 15;
+    public AudioClip[] AudioClips;
     public GameObject PlayerObj;
+
+    private GameObject Warning;
     private GameObject trashEF;
     private GameObject trashEF2;
+    private AudioSource audioSource;
     private Timer2 Timer2;
-    public bool AllowShot = true;
+    private int bulletSlot = 15;
     private bool isSE = false;
-    private AudioSource GunAudio;
-    public AudioClip[] GunAudioClips;
-    private GameObject Warning;
-    public List<Text> Score4 = new List<Text>();
 
+    public bool AllowShot = true;
+    public List<Text> Score4 = new List<Text>();
+    
+    
     // Start is called before the first frame update
     void Start()
     {
         Timer2 = GetComponent<Timer2>();
-        GunAudio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         PlayerStatus.HP = PlayerStatus.maxHP;
         SoundManager.Instance.PlayBGM(0);
 
@@ -37,13 +40,14 @@ public class PlayManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && AllowShot )
         {
             Instantiate(BulletPrefab, Gun.transform.position, BulletPrefab.transform.rotation);
-            GunAudio.PlayOneShot(GunAudioClips[0], 1f);
+            audioSource.PlayOneShot(AudioClips[0], 1f);
             bulletSlot -= 1;// 
             if (bulletSlot == 0)
             {
                 TimeReload = 5f;
                 AllowShot = false;
                 Timer2.Being((int)TimeReload);
+                audioSource.PlayOneShot(AudioClips[1], 1.2f);
             }
 
         }
@@ -53,7 +57,7 @@ public class PlayManager : MonoBehaviour
         }
         UpdateTextScore();
         CleanEF();
-        Die();
+        GameOver();
         ClearGame();
     }
 
@@ -71,16 +75,17 @@ public class PlayManager : MonoBehaviour
             bulletSlot = 15;
         }
     }
-    private void Die()
+    private void GameOver()
     {
-        if (PlayerStatus.HP <= 0)
+        if (PlayerStatus.HP <= 0 || Timer.time <= 0)
         {
             Destroy(PlayerObj);
             if (!isSE)
             {
-                SoundManager.Instance.PlaySE(2);
+
                 isSE = true;
             }
+            SoundManager.Instance.PlaySE(2);
             SoundManager.Instance.StopBGM();
             FadeContoller.Instance.LoadScene(0.2f, GameScene.GameOver);
         }
@@ -93,9 +98,9 @@ public class PlayManager : MonoBehaviour
             CleanScore();
             if (!isSE)
             {
-                SoundManager.Instance.PlaySE(5);
                 isSE = true;
             }
+            SoundManager.Instance.PlaySE(5);
             SoundManager.Instance.StopBGM();
             FadeContoller.Instance.LoadScene(0.2f, GameScene.GameClear);
         }

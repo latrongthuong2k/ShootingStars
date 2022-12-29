@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
  class SpawnObj : MonoBehaviour
 {
     private float spawnRangeX = 10;
@@ -12,19 +12,40 @@ using UnityEngine;
     public GameObject[] StarObjectPrefab;
     public GameObject warningObj;
     private int RandomNum;
-
+    /// <summary>
+    /// 
+    /// </summary>
+    public static bool AllowSpawn;
+    public GameObject Secretboard;
+    private bool allowUpdate;
+    /// <summary>
+    /// 
+    /// </summary>
     // Start is called before the first frame update
     void Start()
-    { 
-        InvokeRepeating("SpawnRandomObj", StarRepeatingAtTime, Timerepeat);
+    {
+        allowUpdate = false;
+        AllowSpawn = false;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        Timerepeat = Random.Range(0, 0.2f);
-
+     
+    }
+    public void ButtonOkEvent()
+    {
+        if (AllowSpawn == false)
+        {
+            AllowSpawn = true;
+            InvokeRepeating(nameof(SpawnRandomObj), StarRepeatingAtTime, Timerepeat);
+            Secretboard.gameObject.SetActive(false);
+        }
+        else
+        {
+            AllowSpawn = false;
+        }
     }
     void SpawnRandomObj()
     {

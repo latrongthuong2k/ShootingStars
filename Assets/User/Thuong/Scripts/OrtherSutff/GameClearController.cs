@@ -37,6 +37,7 @@ public class GameClearController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             _clearSceneAudio.PlayOneShot(SelectSE, 1.0f);
+            resetScore();
             SceneChange();
         }
     }
@@ -69,5 +70,12 @@ public class GameClearController : MonoBehaviour
         {
             FadeContoller.Instance.LoadScene(0.2f, GameScene.Title);
         }
+    }
+    void resetScore()
+    {
+        PlayerStatus.ScoreRed = 0;
+        PlayerStatus.ScoreYellow = 0;
+        PlayerStatus.ScoreBlue = 0;
+        PlayerStatus.ScoreGreen = 0;
     }
 }

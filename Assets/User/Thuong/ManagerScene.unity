@@ -155,17 +155,17 @@ MonoBehaviour:
   volume:
     BGM: 0.5
     Voice: 1
-    SE: 1
+    SE: 0.2
     Mute: 0
   BGM:
-  - {fileID: 8300000, guid: 605e137023726474e8266a39213eda8c, type: 3}
+  - {fileID: 8300000, guid: aa1e29de5795a4f4b86ebd40e3d972c4, type: 3}
   SE:
   - {fileID: 8300000, guid: 4125cd83bfa00914bb23c7b0d664d9c2, type: 3}
   - {fileID: 8300000, guid: adb5c3b5d521d954d88e8af11d182702, type: 3}
   - {fileID: 8300000, guid: d4d49126c16b74a13b6aa9b8128b72f8, type: 3}
   - {fileID: 8300000, guid: 11af7fdc59c68674ea2443c8ede3c14a, type: 3}
   - {fileID: 8300000, guid: 95fc892a974f49e45a524f656905b598, type: 3}
-  - {fileID: 8300000, guid: 0b0d6300645694fbfb11d1c7372dc037, type: 3}
+  - {fileID: 8300000, guid: 05c577318ae5e46f0989c863ffa933f3, type: 3}
 --- !u!4 &1311028068
 Transform:
   m_ObjectHideFlags: 0
