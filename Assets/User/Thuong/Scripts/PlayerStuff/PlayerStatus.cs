@@ -6,6 +6,7 @@ public static class PlayerStatus
     public static int sp = 0;
     public static float speed = 12f;
     public static bool isJump = false;
+    // Score
     public static int ScoreRed = 0;
     public static int ScoreYellow = 0;
     public static int ScoreBlue = 0;
